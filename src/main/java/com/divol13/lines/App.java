@@ -13,8 +13,8 @@ public class App extends Application {
     private static final int WINDOW_HEIGHT = 800;
 
     // game field size
-    private static final int WIDTH = 4;
-    private static final int HEIGHT = 4;
+    private static final int WIDTH = 10;
+    private static final int HEIGHT = 10;
 
     private Parent createContent() {
         Pane root = new Pane();
@@ -24,10 +24,10 @@ public class App extends Application {
         //Tile.TILE_SIZE = WINDOW_WIDTH / WIDTH;
 
         // create a new game field using WIDTH and HEIGHT constants
-        //Field gameField = new Field(WIDTH, HEIGHT);
+        Field gameField = new Field(WIDTH, HEIGHT);
 
         // add game field to the window
-        //root.getChildren().add(gameField);
+        root.getChildren().add(gameField);
 
         return root;
     }
