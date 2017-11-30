@@ -16,8 +16,13 @@ public class Ball extends Circle {
         setRadius(radius);
         setStroke(Color.BLACK);
         setStrokeWidth(1.0);
+    }
 
-        this.color = color;
+    public Ball() {
+        setStroke(Color.BLACK);
+        setStrokeWidth(1.0);
+        setRadius(Tile.SIZE / 2 - 5);
+        setColor();
     }
 
     public void setColor(int color) {

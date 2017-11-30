@@ -19,18 +19,31 @@ public class Tile extends StackPane {
         rect.setStroke(Color.BLACK);
         rect.setStrokeWidth(2.5);
 
-        grid_x = x * SIZE;
-        grid_y = y * SIZE;
+        rect.setTranslateX(x * SIZE);
+        rect.setTranslateY(y * SIZE);
 
-        rect.setTranslateX(grid_x);
-        rect.setTranslateY(grid_y);
+        grid_x = x;
+        grid_y = y;
 
         getChildren().add(rect);
     }
 
     public void setBall(Ball ball) {
+        if(this.ball != null) {
+            System.out.println("Ball already exist in this tile!");
+            return;
+        }
         this.ball = ball;
+
+        this.ball.setTranslateX(this.rect.getTranslateX());
+        this.ball.setTranslateY(this.rect.getTranslateY());
+
         getChildren().add(ball);
+    }
+
+    public void removeBall() {
+        getChildren().remove(this.ball);
+        this.ball = null;
     }
 
     public Ball getBall() {
@@ -39,6 +52,6 @@ public class Tile extends StackPane {
 
     @Override
     public String toString() {
-        return "[" + grid_x + "," + grid_y + "]";
+        return "[" + grid_x + "," + grid_y + "] = " + getBall() != null ? String.valueOf(getBall().getColor()) : "empty";
     }
 }
